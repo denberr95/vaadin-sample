@@ -10,6 +10,11 @@ target/
 *.test
 *.pid
 
+### Vaadin ###
+node_modules/
+webapp/src/main/frontend/generated/
+vite.generated.ts
+
 ### STS ###
 .apt_generated
 .classpath

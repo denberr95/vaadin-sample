@@ -1,0 +1,20 @@
+services:
+  springdb:
+    image: postgres:latest
+    restart: "no"
+    environment:
+    - POSTGRES_USER=admin
+    - POSTGRES_PASSWORD=
+    - POSTGRES_DB=vaadin
+    - POSTGRES_HOST_AUTH_METHOD=trust
+    - TZ=Europe/Rome
+    ports:
+    - "5432:5432" # serve database
+    volumes:
+    - ./database://docker-entrypoint-initdb.d
+    networks:
+    - vscode-vaadin-dev
+
+networks:
+  vscode-vaadin-dev:
+    driver: bridge

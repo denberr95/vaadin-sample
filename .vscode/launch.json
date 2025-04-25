@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "WebApp",
+            "request": "launch",
+            "mainClass": "vaadin.sample.module.webapp.WebApp",
+            "projectName": "webapp",
+            "vmArgs": "",
+            "preLaunchTask": "mvn-compile",
+            "postDebugTask": "mvn-clean"
+        },
+        {
+            "type": "java",
+            "name": "BackEnd",
+            "request": "launch",
+            "mainClass": "vaadin.sample.module.backend.BackendApp",
+            "projectName": "backend",
+            "vmArgs": "",
+            "preLaunchTask": "start-podman-env",
+            "postDebugTask": "stop-podman-env"
+        }
+    ]
+}

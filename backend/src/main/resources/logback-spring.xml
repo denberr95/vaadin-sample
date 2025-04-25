@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds">
+
+    <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
+
+    <appender name="CONSOLE-TEXT" class="ch.qos.logback.core.ConsoleAppender">
+        <withJansi>false</withJansi>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>[%green(%date)] - [%yellow(%thread)] - [%magenta(%logger)] - [%highlight(%level)] - [%blue(%mdc)] - [%white(%message)]%red(%n%throwable)</pattern>
+        </layout>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>./logs/backend.log</file>
+        <append>true</append>
+        <immediateFlush>true</immediateFlush>
+        <encoder>
+            <pattern>[%date] - [%thread] - [%logger] - [%level] - [%mdc] - [%message]%n%throwable</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="vaadin.sample.module" level="TRACE" />
+    <logger name="org.springframework" level="INFO" />
+    <logger name="io.undertow" level="ERROR" />
+
+    <root level="ERROR">
+        <appender-ref ref="CONSOLE-TEXT" />
+        <appender-ref ref="FILE" />
+    </root>
+
+</configuration>
