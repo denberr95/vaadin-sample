@@ -4,6 +4,7 @@ import com.vaadin.flow.component.html.Main;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
+import vaadin.sample.module.webapp.ui.layout.HomeLayout;
 
 @Route(value = "", layout = HomeLayout.class)
 @RouteAlias(value = "main")

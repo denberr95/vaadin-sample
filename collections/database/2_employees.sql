@@ -1,5 +1,7 @@
 CREATE TABLE IF NOT EXISTS app.employees (
     id SERIAL PRIMARY KEY,
+    created_at TIMESTAMP DEFAULT CLOCK_TIMESTAMP NOT NULL,
+    updated_at TIMESTAMP,
     name VARCHAR(100) NOT NULL,
     age INT NOT NULL,
     department VARCHAR(50) NOT NULL,

@@ -1,4 +1,4 @@
-package vaadin.sample.module.webapp.ui;
+package vaadin.sample.module.webapp.ui.layout;
 
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;

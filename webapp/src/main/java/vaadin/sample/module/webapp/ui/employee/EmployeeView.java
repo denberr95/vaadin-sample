@@ -9,7 +9,7 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import vaadin.sample.module.webapp.ui.HomeLayout;
+import vaadin.sample.module.webapp.ui.layout.HomeLayout;
 import vaadin.sample.module.webapp.util.CSSClassName;
 
 
@@ -18,7 +18,6 @@ import vaadin.sample.module.webapp.util.CSSClassName;
 public class EmployeeView extends VerticalLayout {
 
     private final EmployeeService employeeService;
-
     private Grid<EmployeeDTO> grid = new Grid<>(EmployeeDTO.class, false);
     private HorizontalLayout buttonLayout = new HorizontalLayout();
     private Button loadDataButton = new Button("Load Data");
@@ -58,7 +57,6 @@ public class EmployeeView extends VerticalLayout {
         this.buttonLayout.setClassName(CSSClassName.EMPLOYEES_BUTTON_LAYOUT_CLASS_NAME);
 
         this.loadDataButton.setDisableOnClick(true);
-        this.loadDataButton.setAutofocus(true);
         this.loadDataButton.addClickListener(clickEvent -> {
             this.updateGridData();
             this.loadDataButton.setEnabled(true);

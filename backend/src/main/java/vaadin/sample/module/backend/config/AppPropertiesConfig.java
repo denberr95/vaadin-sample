@@ -12,12 +12,12 @@ import org.springframework.validation.annotation.Validated;
 @ConfigurationProperties(prefix = "app-config")
 public final class AppPropertiesConfig {
 
-    private final Logger logger = LoggerFactory.getLogger(AppPropertiesConfig.class);
+    private static final Logger logger = LoggerFactory.getLogger(AppPropertiesConfig.class);
 
     @PostConstruct
     public void init() {
-        if (this.logger.isDebugEnabled()) {
-            this.logger.debug("Custom Application Properties Loaded: '{}'", this.toString());
+        if (logger.isDebugEnabled()) {
+            logger.debug("Custom Application Properties Loaded: '{}'", this);
         }
     }
 }

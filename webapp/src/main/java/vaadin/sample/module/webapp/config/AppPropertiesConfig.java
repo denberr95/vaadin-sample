@@ -2,6 +2,7 @@ package vaadin.sample.module.webapp.config;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -13,17 +14,19 @@ import org.springframework.validation.annotation.Validated;
 @ConfigurationProperties(prefix = "app-config")
 public class AppPropertiesConfig {
 
-    private final Logger logger = LoggerFactory.getLogger(AppPropertiesConfig.class);
+    private static final Logger logger = LoggerFactory.getLogger(AppPropertiesConfig.class);
 
     @Valid
     private BackendClient backendClient;
 
-    public AppPropertiesConfig() {}
+    public AppPropertiesConfig(@Valid BackendClient backendClient) {
+        this.backendClient = backendClient;
+    }
 
     @PostConstruct
     public void init() {
-        if (this.logger.isDebugEnabled()) {
-            this.logger.debug("Custom Application Properties Loaded: '{}'", this.toString());
+        if (logger.isDebugEnabled()) {
+            logger.debug("Custom Application Properties Loaded: '{}'", this);
         }
     }
 
@@ -38,6 +41,7 @@ public class AppPropertiesConfig {
     @Validated
     public static class BackendClient {
 
+        @NotNull(message = "Backend URL must not be null")
         private String url;
 
         public String getUrl() {
